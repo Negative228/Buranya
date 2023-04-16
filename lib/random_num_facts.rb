@@ -4,13 +4,21 @@ require 'nokogiri'
 require 'open-uri'
 
 
-      def facts(num)
-        url = 'http://numbersapi.com/' + num.to_s
-        html = open(url)
+      def facts()
+        url = 'http://numbersapi.com/#random/'
+        html = open(url).read
+        doc = Nokogiri::HTML(html)
 
-        puts JSON.pretty_generate(url)
-        #f = self.class.get("http://numbersapi.com/" + to_str(num), { query: options })
-        #puts f.parsed_response["tickets"]
+        fact = ''
+        doc.css('.api-result').each do |res|
+          text = res
+          fact = fact + res
+
+        end
+
+
+        puts JSON.pretty_generate(fact)
+
       end
 
-facts(15)
+facts()
