@@ -13,6 +13,8 @@ module Buranya
       if response.code == 200
         puts JSON.parse(response.body)["setup"]
         puts JSON.parse(response.body)["punchline"]
+      else
+      puts 'Error:', response.code, response.body
       end
     end
   end
