@@ -11,8 +11,8 @@ module Buranya
 
       response = HTTParty.get('https://official-joke-api.appspot.com/random_joke')
       if response.code == 200
-        puts response.body.setup
-        puts response.body.punchline
+        puts JSON.parse(response.body)["setup"]
+        puts JSON.parse(response.body)["punchline"]
       end
     end
   end
