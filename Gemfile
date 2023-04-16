@@ -13,6 +13,4 @@ gem "rubocop", "~> 1.21"
 
 gem "httparty", "~> 0.21.0"
 
-gem "ascii-image"
 
-gem "rmagick"

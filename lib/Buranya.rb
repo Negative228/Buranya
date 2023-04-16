@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-
+require "httparty"
 require "Buranya/version"
 
 
@@ -14,9 +14,12 @@ module Buranya
                               headers: {'X-Api-Key': 'wCwPBOjfVh4Sd6+wk5qlag==iTrhbDSMz9f3ppXh'})
 
       if response.code == 200
-        img_link = JSON.parse(response.body)[0]["image_link"]
-        ascii = ASCII_Image.new("#{img_link}")
-        ascii.build(60)
+        data = JSON.parse(response.body)[0]
+        if data != nil
+          puts JSON.parse(response.body)[0]["image_link"]
+        else
+          puts 'Wrong breed name'
+        end
       else
         puts 'Error:', response.code, response.body
       end
