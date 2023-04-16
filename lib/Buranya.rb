@@ -14,7 +14,9 @@ module Buranya
                               headers: {'X-Api-Key': 'wCwPBOjfVh4Sd6+wk5qlag==iTrhbDSMz9f3ppXh'})
 
       if response.code == 200
-        puts JSON.parse(response.body)[0]["image_link"]
+        img_link = JSON.parse(response.body)[0]["image_link"]
+        ascii = ASCII_Image.new("#{img_link}")
+        ascii.build(60)
       else
         puts 'Error:', response.code, response.body
       end
