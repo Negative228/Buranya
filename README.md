@@ -1,6 +1,6 @@
 # Buranya
 
-Welcome to Buranya! It is a smol gem that allows you to get jokes and cats pictures.
+Welcome to Buranya! Buranya (Base of Random Knowledge) is a smol gem that allows you to get jokes and cats pictures.
 
 ## Installation
 
