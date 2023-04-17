@@ -1,24 +1,16 @@
 # frozen_string_literal: true
-require 'json'
-require 'nokogiri'
-require 'open-uri'
+require_relative "Buranya/version"
+require 'httparty'
 
+    def facts(num)
 
-      def facts()
-        url = 'http://numbersapi.com/#random/'
-        html = open(url).read
-        doc = Nokogiri::HTML(html)
-
-        fact = ''
-        doc.css('.api-result').each do |res|
-          text = res
-          fact = fact + res
-
-        end
-
-
-        puts JSON.pretty_generate(fact)
-
+      response = HTTParty.get('http://numbersapi.com/' + num.to_s)
+      if response.code == 200
+        puts (response.body)
+      else
+        puts 'Error:', response.code, response.body
       end
 
-facts()
+    end
+
+#facts(15)
