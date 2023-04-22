@@ -9,6 +9,7 @@ module Buranya
 
   module MemMethods
     def cat_pic(breed)
+      # use name of the cat breed in english lowercase to get image
       response = HTTParty.get("https://api.api-ninjas.com/v1/cats?name=#{breed}",
                               headers: {'X-Api-Key': 'wCwPBOjfVh4Sd6+wk5qlag==iTrhbDSMz9f3ppXh'})
 
@@ -27,6 +28,7 @@ module Buranya
     end
 
     def cat_breed_review(breed)
+      # use name of the cat breed in english lowercase to get full review + image
       response = HTTParty.get("https://api.api-ninjas.com/v1/cats?name=#{breed}",
                               headers: {'X-Api-Key': 'wCwPBOjfVh4Sd6+wk5qlag==iTrhbDSMz9f3ppXh'})
 
