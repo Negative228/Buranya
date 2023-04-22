@@ -2,9 +2,19 @@
 require_relative "Buranya/version"
 require 'httparty'
 
-    def facts(num)
+    def facts(num='',type='')
+        #"Hi! You can choose one of four types of facts:
+        # 'math'
+        # 'date'
+        # 'year'
+        # If you don`t need a definite type of fact choose nothing"
 
-      response = HTTParty.get('http://numbersapi.com/' + num.to_s)
+        if (num=='')
+          response = HTTParty.get('http://numbersapi.com/' + rand(max=10000).to_s)
+        else
+          response = HTTParty.get('http://numbersapi.com/' + num.to_s + '/' + type.to_s)
+        end
+
       if response.code == 200
         puts (response.body)
       else
@@ -12,5 +22,3 @@ require 'httparty'
       end
 
     end
-
-#facts(15)
