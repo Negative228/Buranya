@@ -9,7 +9,7 @@ module Buranya
 
   module MemMethods
 
-    def facts(num='',type='')
+    def num_facts(num='',type='')
       #"Hi! You can choose one of four types of facts:
       # 'math'
       # 'date'
