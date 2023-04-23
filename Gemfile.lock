@@ -7,17 +7,22 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
+    addressable (2.8.4)
+      public_suffix (>= 2.0.2, < 6.0)
     ast (2.4.2)
     httparty (0.21.0)
       mini_mime (>= 1.0.0)
       multi_xml (>= 0.5.2)
     json (2.6.3)
+    launchy (2.5.2)
+      addressable (~> 2.8)
     mini_mime (1.1.2)
     minitest (5.18.0)
     multi_xml (0.6.0)
     parallel (1.22.1)
     parser (3.2.2.0)
       ast (~> 2.4.1)
+    public_suffix (5.0.1)
     rainbow (3.1.1)
     rake (13.0.6)
     regexp_parser (2.7.0)
@@ -43,6 +48,7 @@ PLATFORMS
 DEPENDENCIES
   Buranya!
   httparty
+  launchy
   minitest (~> 5.0)
   rake (~> 13.0)
   rubocop (~> 1.21)
