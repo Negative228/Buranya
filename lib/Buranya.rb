@@ -7,7 +7,7 @@ require 'launchy'
 module Buranya
   class Error < StandardError; end
 
-  module MemMethods
+  #module MemMethods
 
     def num_facts(num='',type='')
       #"Hi! You can choose one of four types of facts:
@@ -30,10 +30,11 @@ module Buranya
       return response
     end
     
-    def cat_pic(breed)
+    def cat_pic(breed, key = 'wCwPBOjfVh4Sd6+wk5qlag==iTrhbDSMz9f3ppXh')
       # use name of the cat breed in english lowercase to get image
+      # you may use default ninja api key for this function or use the  one in your profile at api-ninjas.com
       response = HTTParty.get("https://api.api-ninjas.com/v1/cats?name=#{breed.to_s}",
-                              headers: {'X-Api-Key': 'wCwPBOjfVh4Sd6+wk5qlag==iTrhbDSMz9f3ppXh'})
+                              headers: {'X-Api-Key': key})
 
       if response.code == 200
         data = JSON.parse(response.body)[0]
@@ -49,10 +50,11 @@ module Buranya
       return response
     end
 
-    def cat_breed_review(breed)
+    def cat_breed_review(breed, key = 'wCwPBOjfVh4Sd6+wk5qlag==iTrhbDSMz9f3ppXh')
       # use name of the cat breed in english lowercase to get full review + image
+      # you may use default ninja api key for this function or use the  one in your profile at api-ninjas.com
       response = HTTParty.get("https://api.api-ninjas.com/v1/cats?name=#{breed}",
-                              headers: {'X-Api-Key': 'wCwPBOjfVh4Sd6+wk5qlag==iTrhbDSMz9f3ppXh'})
+                              headers: {'X-Api-Key': key})
 
       if response.code == 200
         data = JSON.parse(response.body)[0]
@@ -102,7 +104,7 @@ module Buranya
       end
       return response
     end
-  end
+  #end
   
 end
 

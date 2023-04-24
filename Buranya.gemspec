@@ -5,7 +5,7 @@ require_relative "lib/Buranya/version"
 Gem::Specification.new do |spec|
   spec.name = "Buranya"
   spec.version = Buranya::VERSION
-  spec.authors = [%w{Negative}, %w{Luneroshay}, %w{maplesyropp}, %w{TripleS}, %w{Arantir}]
+  spec.authors = [%w{Negative}, %w{Luneroshay}, %w{maplesyropp}, %w{Askobarus}, %w{Arantir}]
   spec.email = [%w{mafilimonov@sfedu.ru}, %w{dridadodridado@gmail.com}, %w{iberezhnaia@sfedu.ru}, %w{sesalnikov@sfedu.ru}, %w{glebatya2281@yandex.ru}]
 
   spec.summary = "Cat pictures and jokes (mostly)"

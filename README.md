@@ -1,6 +1,6 @@
 # Buranya
 
-Welcome to Buranya! Buranya (Base of Random Knowledge) is a smol gem that allows you to get jokes and cats pictures.
+Welcome to Buranya! Buranya (Base of Random Knowledge) is a smol gem that allows you to get facts, jokes and cats pictures.
 
 ## Installation
 
@@ -26,6 +26,11 @@ You can also specify what you want your number to be:
 To receive a random joke type:
 
     jokes
+
+You can also get a joke of certain theme:
+
+    jokes('general')
+    jokes('programming')
 
 To receive a link of cat photo of chosen breed type:
 

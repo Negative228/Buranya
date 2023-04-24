@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 $LOAD_PATH.unshift File.expand_path("../test", __dir__)
 require "test_helper"
-include Buranya::MemMethods
+include  Buranya#::MemMethods
 class TestBuranya < Minitest::Test
   def test_that_it_has_a_version_number
     refute_nil ::Buranya::VERSION
