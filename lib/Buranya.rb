@@ -27,7 +27,7 @@ module Buranya
       else
         puts 'Error:', response.code, response.body
       end
-
+      return response
     end
     
     def cat_pic(breed)
@@ -46,7 +46,7 @@ module Buranya
       else
         puts 'Error:', response.code, response.body
       end
-      
+      return response
     end
 
     def cat_breed_review(breed)
@@ -78,18 +78,26 @@ module Buranya
       else
         puts 'Error:', response.code, response.body
       end
+      return response
     end
     
-    def jokes
+    def jokes(j_type = '')
 
-      response = HTTParty.get('https://official-joke-api.appspot.com/random_joke')
+
+
+      if (j_type == '')
+              response = HTTParty.get('https://official-joke-api.appspot.com/' + "random_joke")
+            else
+              response = HTTParty.get('https://official-joke-api.appspot.com/' + j_type.to_s + '/' + 'random')
+            end
+
       if response.code == 200
         puts JSON.parse(response.body)["setup"]
         puts JSON.parse(response.body)["punchline"]
       else
       puts 'Error:', response.code, response.body
       end
-      
+      return response
     end
   end
   
