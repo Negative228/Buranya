@@ -27,12 +27,12 @@ module Buranya
       else
         puts 'Error:', response.code, response.body
       end
-
+      return response
     end
     
     def cat_pic(breed)
       # use name of the cat breed in english lowercase to get image
-      response = HTTParty.get("https://api.api-ninjas.com/v1/cats?name=#{breed}",
+      response = HTTParty.get("https://api.api-ninjas.com/v1/cats?name=#{breed.to_s}",
                               headers: {'X-Api-Key': 'wCwPBOjfVh4Sd6+wk5qlag==iTrhbDSMz9f3ppXh'})
 
       if response.code == 200
@@ -46,7 +46,7 @@ module Buranya
       else
         puts 'Error:', response.code, response.body
       end
-      
+      return response
     end
 
     def cat_breed_review(breed)
@@ -78,18 +78,29 @@ module Buranya
       else
         puts 'Error:', response.code, response.body
       end
+      return response
     end
     
-    def jokes
+    def jokes(j_type = '') # you can choose one of this types: 1) general; 2) programming.
 
-      response = HTTParty.get('https://official-joke-api.appspot.com/random_joke')
+
+
+      if (j_type == '')
+              response = HTTParty.get('https://official-joke-api.appspot.com/random_joke')
+            else
+              response = HTTParty.get('https://official-joke-api.appspot.com/jokes/' + j_type.to_s + '/random')
+      end
+
       if response.code == 200
-        puts JSON.parse(response.body)["setup"]
-        puts JSON.parse(response.body)["punchline"]
+        if response.body != "[]"
+          puts JSON.parse(response.body)[0]["setup"]
+          puts JSON.parse(response.body)[0]["punchline"]
+        else puts "no such joke type"
+        end
       else
       puts 'Error:', response.code, response.body
       end
-      
+      return response
     end
   end
   
