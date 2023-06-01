@@ -9,7 +9,7 @@ module Buranya
 
   module MemMethods
 
-    def num_facts(num='',type='')
+    def self.num_facts(num='',type='')
       #"Hi! You can choose one of four types of facts:
       # 'math'
       # 'date'
@@ -30,7 +30,7 @@ module Buranya
       return response
     end
     
-    def cat_pic(breed='abyssinian')
+    def self.cat_pic(breed='abyssinian')
       # use name of the cat breed in english lowercase to get image
       response = HTTParty.get("https://api.api-ninjas.com/v1/cats?name=#{breed.to_s}",
                               headers: {'X-Api-Key': 'wCwPBOjfVh4Sd6+wk5qlag==iTrhbDSMz9f3ppXh'})
@@ -52,7 +52,7 @@ module Buranya
 
     end
 
-    def cat_breed_review(breed='abyssinian')
+    def self.cat_breed_review(breed='abyssinian')
       # use name of the cat breed in english lowercase to get full review + image
       response = HTTParty.get("https://api.api-ninjas.com/v1/cats?name=#{breed}",
                               headers: {'X-Api-Key': 'wCwPBOjfVh4Sd6+wk5qlag==iTrhbDSMz9f3ppXh'})
@@ -85,7 +85,7 @@ module Buranya
       end
     end
     
-    def jokes(j_type = '') # you can choose one of this types: 1) general; 2) programming.
+    def self.jokes(j_type = '') # you can choose one of this types: 1) general; 2) programming.
 
 
 
