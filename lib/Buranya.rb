@@ -38,9 +38,9 @@ module Buranya
       if response.code == 200
         data = JSON.parse(response.body)[0]
         if data != nil
+          Launchy.open(data["image_link"])
+          puts "image is opened in your default browser :3"
           return data["image_link"]
-          #Launchy.open(data["image_link"])
-          #puts "image is opened in your default browser :3"
         else
           return "Wrong breed name"
           #puts 'Wrong breed name'
