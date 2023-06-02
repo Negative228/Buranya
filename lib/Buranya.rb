@@ -88,28 +88,20 @@ module Buranya
       end
     end
     
-    def self.jokes(j_type = '') # you can choose one of this types: 1) general; 2) programming.
+    def self.jokes(j_type) # you can choose one of this types: 1) general; 2) programming.
 
-
-
-      if (j_type == '')
-              response = HTTParty.get('https://official-joke-api.appspot.com/random_joke')
-            else
-              response = HTTParty.get('https://official-joke-api.appspot.com/jokes/' + j_type.to_s + '/random')
-      end
+      response = HTTParty.get('https://official-joke-api.appspot.com/jokes/' + j_type.to_s + '/random')
 
       if response.code == 200
         if response.body != "[]"
           joke = JSON.parse(response.body)[0]["setup"] + "\n" + JSON.parse(response.body)[0]["punchline"]
-        else puts "no such joke type"
+        else return "no such joke type"
         end
       else
-      puts 'Error:', response.code, response.body
+        return response.code
       end
       return joke
     end
   #end
   
 end
-
-
