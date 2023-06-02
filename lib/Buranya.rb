@@ -23,11 +23,10 @@ module Buranya
       end
 
       if response.code == 200
-        puts (response.body)
+        return response.body
       else
-        puts 'Error:', response.code, response.body
+        return response.code
       end
-      return response
     end
     
     def self.cat_pic(breed='abyssinian')
