@@ -34,7 +34,7 @@ module Buranya
       # use name of the cat breed in english lowercase to get image
       # you may use default ninja api key for this function or use the  one in your profile at api-ninjas.com
       response = HTTParty.get("https://api.api-ninjas.com/v1/cats?name=#{breed.to_s}",
-                              headers: {'X-Api-Key': key})
+                              headers: {'X-Api-Key': 'wCwPBOjfVh4Sd6+wk5qlag==iTrhbDSMz9f3ppXh'})
 
       if response.code == 200
         data = JSON.parse(response.body)[0]
@@ -58,7 +58,7 @@ module Buranya
       # use name of the cat breed in english lowercase to get full review + image
       # you may use default ninja api key for this function or use the  one in your profile at api-ninjas.com
       response = HTTParty.get("https://api.api-ninjas.com/v1/cats?name=#{breed}",
-                              headers: {'X-Api-Key': key})
+                              headers: {'X-Api-Key': 'wCwPBOjfVh4Sd6+wk5qlag==iTrhbDSMz9f3ppXh'})
 
       if response.code == 200
         data = JSON.parse(response.body)[0]
@@ -100,14 +100,13 @@ module Buranya
 
       if response.code == 200
         if response.body != "[]"
-          puts JSON.parse(response.body)[0]["setup"]
-          puts JSON.parse(response.body)[0]["punchline"]
+          joke = JSON.parse(response.body)[0]["setup"] + "\n" + JSON.parse(response.body)[0]["punchline"]
         else puts "no such joke type"
         end
       else
       puts 'Error:', response.code, response.body
       end
-      return response
+      return joke
     end
   #end
   
