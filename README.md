@@ -23,11 +23,7 @@ You can also specify what you want your number to be:
     num_facts(20, 'math')
     num_facts(20, 'year')
 
-To receive a random joke type:
-
-    jokes
-
-You can also get a joke of certain theme:
+To get joke of certain theme:
 
     jokes('general')
     jokes('programming')
