@@ -9,7 +9,7 @@ module Buranya
 
   #module MemMethods
 
-    def num_facts(num='',type='')
+    def self.num_facts(num='',type='')
       #"Hi! You can choose one of four types of facts:
       # 'math'
       # 'date'
@@ -30,7 +30,7 @@ module Buranya
       return response
     end
     
-    def cat_pic(breed, key = 'wCwPBOjfVh4Sd6+wk5qlag==iTrhbDSMz9f3ppXh')
+    def self.cat_pic(breed='abyssinian')
       # use name of the cat breed in english lowercase to get image
       # you may use default ninja api key for this function or use the  one in your profile at api-ninjas.com
       response = HTTParty.get("https://api.api-ninjas.com/v1/cats?name=#{breed.to_s}",
@@ -41,16 +41,20 @@ module Buranya
         if data != nil
           Launchy.open(data["image_link"])
           puts "image is opened in your default browser :3"
+          return data["image_link"]
         else
-          puts 'Wrong breed name'
+          return "Wrong breed name"
+          #puts 'Wrong breed name'
         end
       else
-        puts 'Error:', response.code, response.body
+        return response.code
+        #puts 'Error:', response.code, response.body
       end
-      return response
+
     end
 
-    def cat_breed_review(breed, key = 'wCwPBOjfVh4Sd6+wk5qlag==iTrhbDSMz9f3ppXh')
+
+    def self.cat_breed_review(breed='abyssinian')
       # use name of the cat breed in english lowercase to get full review + image
       # you may use default ninja api key for this function or use the  one in your profile at api-ninjas.com
       response = HTTParty.get("https://api.api-ninjas.com/v1/cats?name=#{breed}",
@@ -60,30 +64,31 @@ module Buranya
         data = JSON.parse(response.body)[0]
         if data != nil
 
-          data.each do |key, val|
-            case
-            when key != "image_link"
-              puts "#{breed}s #{key}>>> #{val}\n"
-              sleep 0.5
-            end
-          end
+          #data.each do |key, val|
+          #case
+          #when key != "image_link"
+          #puts "#{breed}s #{key}>>> #{val}\n"
+          #sleep 0.5
+          #end
+          #end
 
-          puts "Image of the #{breed} wil be opened in your default browser in 3 seconds"
-          sleep 3
+          #puts "Image of the #{breed} wil be opened in your default browser in 3 seconds"
+          #sleep 3
 
-          Launchy.open(data["image_link"])
-          puts "image is opened in your default browser :3"
-
+          #Launchy.open(data["image_link"])
+          #puts "image is opened in your default browser :3"
+          return data
         else
-          puts 'Wrong breed name'
+          return "Wrong breed name"
+          #puts 'Wrong breed name'
         end
       else
-        puts 'Error:', response.code, response.body
+        return response.code
+        #puts 'Error:', response.code, response.body
       end
-      return response
     end
     
-    def jokes(j_type = '') # you can choose one of this types: 1) general; 2) programming.
+    def self.jokes(j_type = '') # you can choose one of this types: 1) general; 2) programming.
 
 
 
